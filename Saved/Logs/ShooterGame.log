@@ -1,0 +1,19 @@
+﻿[2023.04.06-05.16.20:480][  0]Log file open, 04/06/23 05:16:20
+[2023.04.06-05.16.20:480][  0]New Save Format enabled
+[2023.04.06-05.16.20:480][  0]ARK Version: 357.11
+[2023.04.06-05.16.20:480][  0]PID: 189
+[2023.04.06-05.17.09:172][  0]Primal Game Data Took 47.76 seconds
+[2023.04.06-05.17.25:779][  0]SteamSocketsOpenSource: gethostname failed ()
+[2023.04.06-05.17.25:779][  0]gethostbyname failed ()
+[2023.04.06-05.17.40:394][  0]Server Initializing with BattlEye Anti-Cheat Protection. If you do not wish to use BattlEye, please launch with -NoBattlEye
+[2023.04.06-05.17.40:396][  0]BattlEye successfully started.
+[2023.04.06-05.18.10:846][  0]Server: "haurishen" has successfully started!
+[2023.04.06-05.18.10:955][  0]ADayCycleManager DayCycleManager3, 
+[2023.04.06-05.18.19:929][  0]Commandline:  TheIsland?RCONEnabled=True?RCONPort=27020?SessionName=haurishen?Port=7777?QueryPort=27015?ServerPassword=hoh?ServerAdminPassword=hohoh?MaxPlayers=3?GameModIds=731604991,1404697612,889745138,821530042?listen
+[2023.04.06-05.18.19:929][  0]Full Startup: 121.01 seconds (BP compile: 0.00 seconds)
+[2023.04.06-05.18.19:929][  0]Number of cores 4
+[2023.04.06-05.18.20:063][  1]Server attempting to run new years event
+[2023.04.06-05.18.20:063][  1]Sever Is not set to official or running NewYearEvent argument
+[2023.04.06-05.18.21:940][ 57]Set New Years event location: -86711.156 - -171866.203 - 430.878
+[2023.04.06-05.32.25:793][197]Saving world...
+[2023.04.06-05.32.26:676][197]World Save Complete. Took 0.882937
