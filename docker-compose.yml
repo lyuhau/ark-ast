@@ -18,5 +18,5 @@ services:
     volumes:
       - ./arkmanager.cfg:/etc/arkmanager/arkmanager.cfg
       - ./instances/main.cfg:/etc/arkmanager/instances/main.cfg
-      - ./Saved:/home/steam/ARK/ShooterGame/Saved
+      - ./ARK-Backups:/home/steam/ARK-Backups
     command: ["sh", "-c", "arkmanager update --update-mods && arkmanager restore && arkmanager run"]
