@@ -9,10 +9,10 @@ stop:
 	./stop-server.sh
 
 backup:
-	docker exec ark-ded arkmanager backup
+	./backup-server.sh
 
 backup-every-5:
-	while sleep 300; do docker exec ark-ded arkmanager backup; done
+	while sleep 300; do ./backup-server; done
 
 watch-netstat:
 	watch -n1 "netstat -4apn | grep ShooterGame"

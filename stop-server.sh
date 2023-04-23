@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 
-docker exec ark-ded bash -c 'arkmanager saveworld && arkmanager backup && arkmanager stop'
+./backup-server.sh
+docker exec ark-ded bash -c 'arkmanager stop'
 
