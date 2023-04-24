@@ -14,6 +14,9 @@ backup:
 backup-every-5:
 	while sleep 300; do ./backup-server; done
 
+logs:
+	docker logs -f ark-ded
+
 watch-netstat:
 	watch -n1 "netstat -4apn | grep ShooterGame"
 
