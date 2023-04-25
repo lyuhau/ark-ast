@@ -12,7 +12,7 @@ backup:
 	./backup-server.sh
 
 backup-every-5:
-	while sleep 300; do ./backup-server; done
+	while sleep 300; do ./backup-server.sh; done
 
 logs:
 	docker logs -f ark-ded
