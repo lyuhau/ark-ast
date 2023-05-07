@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-git stash -u
 chown -R 1000:1000 ARK-Backups
-docker exec ark-ded bash -c 'arkmanager saveworld && arkmanager backup'
+docker compose ps --format json | jq -r '.[].Name' | while read container; do
+  docker exec "$container" bash -c 'arkmanager saveworld && arkmanager backup' &
+done
+wait
 git add ARK-Backups
 git commit -m "$(date '+%Y-%m-%d_%H.%M.%S')"
-git stash pop
-
