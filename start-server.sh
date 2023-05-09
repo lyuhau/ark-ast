@@ -2,7 +2,8 @@
 
 ./build.sh
 
-mkdir -p ARK-Backups
-chown -R 1000:1000 ARK-Backups
+mkdir -p ARK-Backups cluster
 
-docker-compose up -d
+docker-compose up -d $(<default-maps grep -v '#')
+
+chown -R 1000:1000 ARK-Backups cluster

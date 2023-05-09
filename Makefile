@@ -26,4 +26,3 @@ logs:
 
 watch-netstat:
 	watch -n1 "netstat -4apn | grep ShooterGame"
-

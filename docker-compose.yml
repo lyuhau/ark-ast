@@ -2,6 +2,7 @@ version: "3"
 
 services:
   ark-ded:
+    profiles: ["template"]
     container_name: ark-ded
     image: lyuhau/ark-ast:${BRANCH:-mods}
     ulimits:
@@ -9,14 +10,194 @@ services:
         soft: 1000000
         hard: 1000000
     network_mode: host
-#    ports:
-#      - 27015:27015/udp
-#      - 7777:7777/udp
-#      - 7778:7778/udp
-#      - 27020:27020/tcp
+    #    ports:
+    #      - 27015:27015/udp
+    #      - 7777:7777/udp
+    #      - 7778:7778/udp
+    #      - 27020:27020/tcp
     privileged: true
     volumes:
       - ./arkmanager.cfg:/etc/arkmanager/arkmanager.cfg
-      - ./instances/main.cfg:/etc/arkmanager/instances/main.cfg
-      - ./ARK-Backups:/home/steam/ARK-Backups
-    command: ["sh", "-c", "arkmanager update --update-mods && arkmanager restore && arkmanager run"]
+      - ./common.cfg:/etc/arkmanager/instances/main.cfg
+      - ./ARK-Backups/cluster:/home/steam/ARK/ShooterGame/Saved/clusters/cluster
+    command: ["sh", "-c", "arkmanager update --update-mods && arkmanager restore; arkmanager run"]
+
+  the-island:
+    extends:
+      service: ark-ded
+    profiles: []
+    container_name: the-island
+    labels:
+      map_name: "The Island"
+    environment:
+      serverMap: "TheIsland"
+      ark_RCONPort: "32330"
+      ark_Port: "7777"
+      ark_QueryPort: "27015"
+    volumes:
+      - ./ARK-Backups/the-island.save:/home/steam/ARK-Backups/main.save
+
+  the-center:
+    extends:
+      service: ark-ded
+    profiles: []
+    container_name: the-center
+    labels:
+      map_name: "The Center"
+    environment:
+      serverMap: "TheCenter"
+      ark_RCONPort: "32332"
+      ark_Port: "7779"
+      ark_QueryPort: "27017"
+    volumes:
+      - ./ARK-Backups/the-center.save:/home/steam/ARK-Backups/main.save
+
+  scorched-earth:
+    extends:
+      service: ark-ded
+    profiles: []
+    container_name: scorched-earth
+    labels:
+      map_name: "Scorched Earth"
+    environment:
+      serverMap: "ScorchedEarth_P"
+      ark_RCONPort: "32334"
+      ark_Port: "7781"
+      ark_QueryPort: "27019"
+    volumes:
+      - ./ARK-Backups/scorched-earth.save:/home/steam/ARK-Backups/main.save
+
+  ragnarok:
+    extends:
+      service: ark-ded
+    profiles: []
+    container_name: ragnarok
+    labels:
+      map_name: "Ragnarok"
+    environment:
+      serverMap: "Ragnarok"
+      ark_RCONPort: "32336"
+      ark_Port: "7783"
+      ark_QueryPort: "27021"
+    volumes:
+      - ./ARK-Backups/ragnarok.save:/home/steam/ARK-Backups/main.save
+
+  aberration:
+    extends:
+      service: ark-ded
+    profiles: []
+    container_name: aberration
+    labels:
+      map_name: "Aberration"
+    environment:
+      serverMap: "Aberration_P"
+      ark_RCONPort: "32338"
+      ark_Port: "7785"
+      ark_QueryPort: "27023"
+    volumes:
+      - ./ARK-Backups/aberration.save:/home/steam/ARK-Backups/main.save
+
+  extinction:
+    extends:
+      service: ark-ded
+    profiles: []
+    container_name: extinction
+    labels:
+      map_name: "Extinction"
+    environment:
+      serverMap: "Extinction"
+      ark_RCONPort: "32340"
+      ark_Port: "7787"
+      ark_QueryPort: "27025"
+    volumes:
+      - ./ARK-Backups/extinction.save:/home/steam/ARK-Backups/main.save
+
+  valguero:
+    extends:
+      service: ark-ded
+    profiles: []
+    container_name: valguero
+    labels:
+      map_name: "Valguero"
+    environment:
+      serverMap: "Valguero_P"
+      ark_RCONPort: "32342"
+      ark_Port: "7789"
+      ark_QueryPort: "27027"
+    volumes:
+      - ./ARK-Backups/valguero.save:/home/steam/ARK-Backups/main.save
+
+  genesis:
+    extends:
+      service: ark-ded
+    profiles: []
+    container_name: genesis
+    labels:
+      map_name: "Genesis: Part 1"
+    environment:
+      serverMap: "Genesis"
+      ark_RCONPort: "32344"
+      ark_Port: "7791"
+      ark_QueryPort: "27029"
+    volumes:
+      - ./ARK-Backups/genesis.save:/home/steam/ARK-Backups/main.save
+
+  crystal-isles:
+    extends:
+      service: ark-ded
+    profiles: []
+    container_name: crystal-isles
+    labels:
+      map_name: "Crystal Isles"
+    environment:
+      serverMap: "CrystalIsles"
+      ark_RCONPort: "32346"
+      ark_Port: "7793"
+      ark_QueryPort: "27031"
+    volumes:
+      - ./ARK-Backups/crystal-isles.save:/home/steam/ARK-Backups/main.save
+
+  gen2:
+    extends:
+      service: ark-ded
+    profiles: []
+    container_name: gen2
+    labels:
+      map_name: "Genesis: Part 2"
+    environment:
+      serverMap: "Gen2"
+      ark_RCONPort: "32348"
+      ark_Port: "7795"
+      ark_QueryPort: "27033"
+    volumes:
+      - ./ARK-Backups/gen2.save:/home/steam/ARK-Backups/main.save
+
+  lost-island:
+    extends:
+      service: ark-ded
+    profiles: []
+    container_name: lost-island
+    labels:
+      map_name: "Lost Island"
+    environment:
+      serverMap: "LostIsland"
+      ark_RCONPort: "32350"
+      ark_Port: "7797"
+      ark_QueryPort: "27035"
+    volumes:
+      - ./ARK-Backups/lost-island.save:/home/steam/ARK-Backups/main.save
+
+  fjordur:
+    extends:
+      service: ark-ded
+    profiles: []
+    container_name: fjordur
+    labels:
+      map_name: "Fjordur"
+    environment:
+      serverMap: "Fjordur"
+      ark_RCONPort: "32352"
+      ark_Port: "7799"
+      ark_QueryPort: "27037"
+    volumes:
+      - ./ARK-Backups/fjordur.save:/home/steam/ARK-Backups/main.save
